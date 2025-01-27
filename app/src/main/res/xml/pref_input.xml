@@ -163,6 +163,12 @@
             app:key="km_back_to_escape"
             app:summary="@string/pref_km_back_to_escape_summary"
             app:title="@string/pref_km_back_to_escape" />
+
+        <SwitchPreference
+            app:defaultValue="false"
+            app:key="km_alt_plus_left_click_to_middle_click"
+            app:summary="@string/pref_km_alt_plus_left_click_to_middle_click"
+            app:title="@string/pref_km_alt_plus_left_click_to_middle_click" />
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -102,15 +102,25 @@ class TouchHandler(private val frameView: FrameView, private val dispatcher: Dis
         return !(e.buttonState == 0 && e.getToolType(0) != MotionEvent.TOOL_TYPE_MOUSE)
     }
 
+    private val inputPref = pref.input
+
+    private fun handleAltModifiedLeftToMiddle(b: PointerButton):PointerButton{
+        if (inputPref.kmAltLeftToMiddle && inputPref.kAltPressed && b == PointerButton.Left)
+        {
+            return PointerButton.Middle
+        }
+        return b
+    }
+
     /**
      * Convert from [MotionEvent] button to [PointerButton]
      */
-    private fun convertButton(button: Int) = when (button) {
+    private fun convertButton(button: Int) = handleAltModifiedLeftToMiddle(when (button) {
         MotionEvent.BUTTON_PRIMARY -> PointerButton.Left
         MotionEvent.BUTTON_SECONDARY -> PointerButton.Right
         MotionEvent.BUTTON_TERTIARY -> PointerButton.Middle
         else -> PointerButton.None
-    }
+    })
 
 
     /****************************************************************************************

@@ -75,6 +75,8 @@ class AppPreferences(context: Context) {
         val kmLanguageSwitchToSuper; get() = prefs.getBoolean("km_language_switch_to_super", false)
         val kmRightAltToSuper; get() = prefs.getBoolean("km_right_alt_to_super", false)
         val kmBackToEscape; get() = prefs.getBoolean("km_back_to_escape", false)
+        val kmAltLeftToMiddle; get() = prefs.getBoolean("km_alt_plus_left_click_to_middle_click", false)
+        var kAltPressed = false;
     }
 
     inner class Server {

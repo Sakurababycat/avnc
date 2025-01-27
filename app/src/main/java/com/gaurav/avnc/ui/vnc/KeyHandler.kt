@@ -344,6 +344,13 @@ class KeyHandler(private val dispatcher: Dispatcher, prefs: AppPreferences) {
             && inputPref.kmBackToEscape)
             return KeyEvent(event.action, KeyEvent.KEYCODE_ESCAPE)
 
+        if (inputPref.kmAltLeftToMiddle && (event.keyCode == KeyEvent.KEYCODE_ALT_RIGHT || event.keyCode == KeyEvent.KEYCODE_ALT_LEFT)){
+            when (event.action){
+                KeyEvent.ACTION_DOWN -> {inputPref.kAltPressed = true}
+                KeyEvent.ACTION_UP -> {inputPref.kAltPressed = false}
+            }
+        }
+
         return event
     }
 
